@@ -1,11 +1,15 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+
 import './menu-list.style.scss';
 
-const MenuList = ({ title, bgImage, size }) => (
-    <div className={`${size} menu-list`} >
+const MenuList = ({ title, image, size, history, linkUrl, match }) => (
+    <div className={`${size} menu-list`}
+        onClick={() => history.push(`${match.url}${linkUrl}`)}
+    >
         <div className="bgImage"
             style={
-                { backgroundImage: `url(${bgImage})` }
+                { backgroundImage: `url(${image})` }
             }
         />
         <div className="menu-list-content">
@@ -15,4 +19,4 @@ const MenuList = ({ title, bgImage, size }) => (
     </div>
 )
 
-export default MenuList;
+export default withRouter(MenuList);

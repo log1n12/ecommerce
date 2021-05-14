@@ -10,29 +10,34 @@ class Directory extends Component {
                 {
                     id: 1,
                     title: "Hats",
-                    image: "https://i.ibb.co/R70vBrQ/men.png"
+                    image: "https://i.ibb.co/R70vBrQ/men.png",
+                    linkUrl: "hats"
                 },
                 {
                     id: 2,
                     title: "Jackets",
-                    image: "https://i.ibb.co/R70vBrQ/men.png"
+                    image: "https://i.ibb.co/R70vBrQ/men.png",
+                    linkUrl: "jackets"
                 },
                 {
                     id: 3,
                     title: "Sneakers",
-                    image: "https://i.ibb.co/R70vBrQ/men.png"
+                    image: "https://i.ibb.co/R70vBrQ/men.png",
+                    linkUrl: "sneakers"
                 },
                 {
                     id: 4,
                     title: "Womens",
                     image: "https://i.ibb.co/R70vBrQ/men.png",
-                    size: 'large'
+                    size: 'large',
+                    linkUrl: "womens"
                 },
                 {
                     id: 5,
                     title: "Mens",
                     image: "https://i.ibb.co/R70vBrQ/men.png",
-                    size: 'large'
+                    size: 'large',
+                    linkUrl: "mens"
                 }
             ]
         }
@@ -41,12 +46,10 @@ class Directory extends Component {
     render() {
         return (
             <div className="directory">
-                {this.state.sections.map(({ id, title, image, size }) =>
+                {this.state.sections.map(({ id, ...otherSectionProps }) =>
                     <MenuList
                         key={id}
-                        title={title}
-                        bgImage={image}
-                        size={size}
+                        {...otherSectionProps}
                     />
                 )}
             </div>
